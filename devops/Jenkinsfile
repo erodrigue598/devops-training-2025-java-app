@@ -1,11 +1,44 @@
-stage('Test') {
-  agent {
-    docker {
-      image 'maven:3.8.6-openjdk-11-slim'
+  
+    pipeline {
+        agent any
+    
+        stages {
+            stage('Checkout') {
+                steps {
+                    checkout scm
+                }
+            }
+    
+            stage('Instalar dependencias') {
+                steps {
+                    sh 'pip install -r requirements.txt'
+                }
+            }
+    
+            stage('Tests') {
+                steps {
+                    sh 'pytest -q'
+                }
+            }
+    
+            stage('Info') {
+                steps { 
+                    echo "Job: ${env.JOB_NAME}"
+                    echo "Build: ${env.BUILD_NUMBER}" 
+                }
+            }
+          
+    // ejercicio 2
+    stage('java Test') {
+      agent {
+        docker {
+          image 'maven:3.8.6-openjdk-11-slim'
+        }
+      }
+      steps {
+        sh 'mvn test'
+      }
+                     }
     }
-  }
-  steps {
-    sh 'mvn test'
-  }
-}
-
+           }
+    } 
