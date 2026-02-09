@@ -16,8 +16,10 @@ pipeline {
 }
 }
             steps {
+ dir('..') {
                 sh 'pip install -r  devops-training-2025-python-app/requirements.txt'
-            }
+                sh 'pytest -q'}            
+}
         }
 
         stage('Tests') {
