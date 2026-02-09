@@ -6,8 +6,6 @@
                 steps {
                     checkout scm
                 }
-            }
-    
             stage('Instalar dependencias') {
                 steps {
                     sh 'pip install -r requirements.txt'
@@ -40,4 +38,4 @@
                      }
     }
            }
-    
+
