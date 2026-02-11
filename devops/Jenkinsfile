@@ -38,7 +38,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'Makefile lint'
+                sh 'make lint'
             }
         }
         
@@ -50,7 +50,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'Makefile' //'mvn test'
+                sh 'make' //'mvn test'
             }
         }
 
