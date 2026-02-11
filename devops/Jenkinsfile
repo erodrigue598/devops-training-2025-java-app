@@ -22,8 +22,15 @@ pipeline {
             }
         }
         */
+        stage('Info') {
+            steps { 
+                echo "Job: ${env.JOB_NAME}"
+                echo "Build: ${env.BUILD_NUMBER}" 
+            }
+        }
 
-        
+
+    // ejercicio 3    
         stage('Lint') {
             agent {
                 docker {
@@ -34,15 +41,9 @@ pipeline {
                 sh 'make lint'
             }
         }
-        stage('Info') {
-            steps { 
-                echo "Job: ${env.JOB_NAME}"
-                echo "Build: ${env.BUILD_NUMBER}" 
-            }
-        }
-
+        
         // ejercicio 2
-     /*   stage('java Test') {
+        stage('java Test') {
             agent {
                 docker {
                     image 'maven:3.8.6-openjdk-11-slim'
@@ -51,7 +52,7 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-        }*/
+        }
 
     }
 }
