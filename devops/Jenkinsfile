@@ -43,7 +43,7 @@ pipeline {
         }
         
         // ejercicio 2
-        stage('java Test') {
+        stage('Tests') {
             agent {
                 docker {
                     image 'maven:3.8.6-openjdk-11-slim'
