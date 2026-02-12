@@ -34,7 +34,7 @@ pipeline {
         stage('Lint') {
             agent {
                 docker {
-                    image 'maven-make:latest'//3.8.6-openjdk-11-slim'
+                    image 'maven-make:3.8.6-openjdk-11-slim'
                 }
             }
             steps {
@@ -46,7 +46,7 @@ pipeline {
         stage('Tests') {
             agent {
                 docker {
-                    image 'maven-make:latest'//3.8.6-openjdk-11-slim'
+                    image 'maven-make:3.8.6-openjdk-11-slim'
                 }
             }
             steps {
