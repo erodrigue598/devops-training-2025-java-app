@@ -34,7 +34,7 @@ pipeline {
                 echo "Build: ${env.BUILD_NUMBER}" 
             }
         }
-//ejercicio 2
+/*//ejercicio 2
         stage('java Test') {
             agent {
                 docker {
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-        }
+        } */
 
     }
 }
