@@ -50,7 +50,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'make' //'mvn test'
+                sh 'make test' //'mvn test'
             }
         }
 
