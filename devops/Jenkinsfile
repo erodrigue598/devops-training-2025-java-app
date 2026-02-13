@@ -27,6 +27,16 @@ pipeline {
         sh 'echo "Stage dummy. En la Practica 2 ejecutaras aqui los tests unitarios."'
       }
     }
+    stage('Lint') { 
+        agent { 
+          docker { 
+                  image 'maven:3.8.6-openjdk-11-slim'
+          } 
+        } 
+      steps { 
+        sh 'make lint'
+      } 
+    }
      stage('Info') {
             steps { 
                 echo "Job: ${env.JOB_NAME}"
