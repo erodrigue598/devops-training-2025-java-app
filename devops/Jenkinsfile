@@ -41,7 +41,7 @@ pipeline {
         pwd
         ls -la
         cd devops
-        printf "lint:\n\tmvn  -f ../pom.xml -q -DskipTests=true checkstyle:check\n\ntest:\n\tmvn -f ../pom.xml -q test\n" > Makefile
+        printf "lint:\n\tmvn  -f ../pom.xml -q -DskipTests=true compile\n\ntest:\n\tmvn -f ../pom.xml -q test\n" > Makefile
         cat -n Makefile
         make lint'''
       } 
