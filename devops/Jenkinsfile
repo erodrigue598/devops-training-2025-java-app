@@ -41,6 +41,8 @@ pipeline {
         pwd
         ls -la
         cd devops
+        printf "lint:\n\tmvn -q -DskipTests=true checkstyle:check\n\ntest:\n\tmvn -q test\n" > Makefile
+        cat -n Makefile
         make lint'''
       } 
     }
