@@ -31,10 +31,14 @@ pipeline {
         agent { 
           docker { 
                   image 'maven:3.8.6-openjdk-11-slim'
+                   args '-u root --entrypoint ""'
           } 
         } 
       steps { 
-        sh 'make lint'
+        sh '''
+        apt-get update
+        apt-get install -y make python3 python3-pip
+        make lint'''
       } 
     }
      stage('Info') {
