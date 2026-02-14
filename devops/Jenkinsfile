@@ -38,7 +38,7 @@ pipeline {
         sh ''' 
         apt-get update 
         apt-get install -y make python3 python3-pip 
-        pip3 install -r requirements.txt 
+        pip3 install -r devops/requirements.txt 
         make lint 
         '''
             } 
